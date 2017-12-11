@@ -1,0 +1,351 @@
+# create immediate 64
+Move	8
+Sl	0	3			# logical shift left 3 bits (* 8)
+Store	0	$t0		# store the immediate 64
+# create immediate 65
+Addi	1
+Store	0	$t1 	# store the immediate 65
+
+Load	1	$t0	
+Store	0	$t0		#store int[15:8] to $t0
+Load	1	$t1	
+Store	0	$t1		#store int[7:0] to $t1
+
+# isolate sign bit = S into R2
+Load	0	$t0 	# load the value to reg acc
+Sl	1	7			# then shift right by 7 bit to find the sign bit
+Store	0	$t5		# store the exponent in the reg
+
+# store the [1-5]
+Load	0	$t0 	# load the value to reg acc
+Sl	0	1			# left shift by one bit
+Sl	1	3			# then shift right by 3 bit
+Store	0	$t4		# store the exponent in the reg
+
+# isolate mantissa = M[9:0] into R3
+
+# last two bits for the first byte of mantissa
+Load	0	$t0	
+Sl	0	6			# shift left 6 bits
+Sl	1	6			# shift right 6 bits
+Store	0	$t7		# last 2 bits of the first byte
+
+# next byte for mantissa
+Load	0	$t1	
+Store	0	$t8		# next byte for mantissa
+
+# if E != 0 prepend hidden bit = 1 onto M
+Move	0
+Store	0	$t6
+Load	0	$t4
+Seq	$t6
+Beo	0
+
+# prepend 1
+Load	0	$t7		# add the value to the first byte of mentissa
+Addi	4
+Store	0	$t7		# last 2 bits of the first byte
+
+not_prepend(#0) :
+# check Exponent
+# 29-31: overflow; force output = 16'h7fff (S=0) or 16'hffff (S=1)
+Move	29
+Store	0	$t10
+Load	0	$t4
+Slt	$t10
+Beo	1
+# set t2 to be 7f and ff if S = 0
+Move	0
+Store	0	$t9		# check value
+Load	0	$t5
+Seq	$t9
+Beo	3
+
+# negative case when S = 1
+Move	15			# 7f
+Sl	0	3			# shift to be 100 since need to append
+Addi	7
+Store	0	$t7		# store it back first byte mentissa
+Move	15			# ff
+Sl	0	4			# shift to be 100 since need to append
+Addi	15
+Store	0	$t8		# next byte for mantissa
+Jump	2
+
+# positive case when S = 0
+positive(#3) :
+Move	15			# ff
+Sl	0	4			# shift to be 100 since need to append
+Addi	15
+Store	0	$t7		# first byte for mantissa
+Load	0	$t7		# first byte for mantissa
+Store	0	$t8		# next byte for mantissa
+Jump	2
+
+not_overflow(#1) :
+# 26-28: left shift mantissa, zero fill left and right as needed
+Move	26
+Store	0	$t10
+Load	0	$t4
+Slt	$t10
+Beo	4
+# is 26-28
+# first byte shift and add the shift byte of the second one
+Move	25
+Store	0	$t10
+Load	0	$t4		# let t9 = t9 - 25
+Subr	1	$t10	
+Store	0	$t9		# shift offset
+Load	0	$t7		# load first byte mentissa
+Slr	0	$t9			# shift left 2^n
+Store	0	$t7		# store it back
+# get the first two bits of the next byte
+Move	8			
+Subr	1	$t9		# let t10 = 8 - t9
+Store	0	$t10	# shift offset
+Load	0	$t8		# load next byte mentissa
+Slr	1	$t10		# shift right 2^n
+Store	0	$t10	# t10 is the value of the first two bits
+Load	0	$t7		# load first byte mentissa
+Addr	0	$t10	# add the value of the first two bits
+Store	0	$t7		# store it back
+
+# set the second byte of mentissa
+Load	0	$t8		# load next byte mentissa
+Slr	0	$t9			# shift left 2^n
+Store	0	$t8		# store it back
+Jump	2			# go to the end
+
+notGreaterThan26(#4) :
+Move	25
+Store	0	$t10
+Load	0	$t4
+Slt	$t10
+Beo	5
+# is 25
+Jump	2			# go to the end
+
+notGreaterThan25(#5) :
+Move	14
+Store	0	$t10
+Load	0	$t4
+Slt	$t10
+Beo	6
+# is 14
+Move	13
+Store	0	$t9
+Load	0	$t4
+Subr	1	$t9
+Store	0	$t9
+Move	12
+Store	0	$t10
+Load	0	$t10
+Subr	1	$t9
+Store	0	$t10
+Store	0	$t2
+Move	0
+Store	0	$t14
+# round when t10 < 9
+Move	9
+Store	0	$t11
+Load	0	$t10
+Slt	$t11
+Beo	13
+
+# S for > 9 case
+Move	0
+Store	0	$t11
+anotherStickyBit(#14) :
+Move	8
+Store	0	$t1
+Load	0	$t11
+Slt	$t1
+Bez	15
+Load	0	$t8
+Slr	1	$t11
+Store	0	$t9
+Move	7
+Store	0	$t0
+Load	0	$t9
+Slr	0	$t0
+Slr	1	$t0
+Or	$t14
+Store	0	$t14
+Load	0	$t11
+Addi	1
+Store	0	$t11
+Slt	$t1
+Beo	14
+
+finish8bitS(#15) :
+Move	8
+Store	0	$t1
+Load	0	$t10
+Subr	1	$t1
+Store	0	$t10
+Load	0	$t7
+Store	0	$t8
+
+round(#13) :
+# R
+Move	1
+Store	0	$t13
+Load	0	$t10
+Subr	1	$t13
+Store	0	$t13
+Load	0	$t8
+Slr	1	$t13
+Store	0	$t12
+Move	7
+Store	0	$t13
+Load	0	$t12
+Slr	0	$t13
+Slr	1	$t13
+Store	0	$t12
+
+# U
+Load	0	$t8
+Slr	1	$t10
+Store	0	$t13
+Move	7
+Store	0	$t11
+Load	0	$t13
+Slr	0	$t11
+Slr	1	$t11
+Store	0	$t13
+
+# S
+Move	0
+Store	0	$t11
+stickyBit(#11) :
+Load	0	$t11
+Slt	$t10
+Bez	10
+Load	0	$t8
+Slr	1	$t11
+Store	0	$t9
+Move	7
+Store	0	$t0
+Load	0	$t9
+Slr	0	$t0
+Slr	1	$t0
+Or	$t14
+Store	0	$t14
+Load	0	$t11
+Addi	1
+Store	0	$t11
+Slt	$t10
+Beo	11
+
+skipRound(#10) :
+Load	0	$t8
+Slr	1	$t10 	# check later change t10 to t2
+Store	0	$t8
+Move	3
+Store	0	$t11
+Load	0	$t2
+Slt	$t11
+Beo	8
+
+Move	9
+Store	0	$t11
+Load	0	$t10
+Slt	$t11
+Beo	9
+
+Load	0	$t7
+Slr	1	$t10
+Store	0	$t7
+Load	0	$t7
+Store	0	$t8
+Move	0
+Store	0	$t7
+Jump	12			# go to the end
+
+lessthan9shiftleft(#9) :
+Move	8
+Subr	1	$t10
+Store	0	$t11
+Load	0	$t7
+Slr	0	$t11
+Store	0	$t7
+Load	0	$t8
+Addr	1	$t7
+Store	0	$t8
+Move	0
+Store	0	$t7
+Jump	12			# go to the end
+
+lessthan3shiftright(#8) :
+Move	8
+Subr	1	$t10
+Store	0	$t11
+Load	0	$t7
+Slr	0	$t11
+Store	0	$t11
+Load	0	$t8
+Addr	1	$t11
+Store	0	$t8
+Load	0	$t7
+Slr	1	$t10
+Store	0	$t7
+Jump	12			# go to the end
+
+checkRound(#12) :
+Move	1
+Store	0	$t0
+Load	0	$t12
+Seq	$t0
+Bez	2
+Load	0	$t13
+Seq	$t0
+Beo	16
+
+Load	0	$t14
+Seq	$t0
+Bez	2
+
+AddOne(#16) :
+Load	0	$t8
+Addi	1
+Store	0	$t8
+Jump	2			# go to the end
+
+notGreaterThan14(#6) :
+# set t2 to be 7f and ff if S = 0
+Move	0
+Store	0	$t9		# check value
+Load	0	$t5
+Seq	$t9
+Beo	7
+
+# negative case when S = 1
+Move	128			# 80
+Store	0	$t7		# store it back first byte mentissa
+Move	0			# 00
+Store	0	$t8		# next byte for mantissa
+Jump	2
+
+# positive case when S = 0
+14_positive(#7) :
+Move	0			# 00
+Store	0	$t7		# first byte for mantissa
+Move	0			# 00
+Store	0	$t8		# next byte for mantissa
+Jump	2
+
+end(#2) :
+# create immediate 64
+Move	8
+Sl	0	3			# logical shift left 3 bits (* 8)
+# create immediate 66
+Addi	2
+Store	0	$t2		# store the immediate 66
+# create immediate 67
+Addi	1
+Store	0	$t3		# store the immediate 67
+Load	0	$t7		# load first byte mentissa
+Store	1	$t2		# store the immediate 66
+Load	0	$t8		# load second byte mentissa
+Store	1	$t3		# store the immediate 67
+Halt

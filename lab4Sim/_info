@@ -1,0 +1,305 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+dC:/Users/reh01/Desktop/Lab 4
+vALU
+Z0 DXx6 sv_std 3 std 0 22 AD7iAPLo6nTIKk<N0eo=D3
+Z1 DXx4 work 11 definitions 0 22 NGn;LW1KoTR>BN6nZo7O<0
+DXx4 work 11 ALU_sv_unit 0 22 7mnB9Q]0jLcX>8TkHSGJJ2
+Z2 VDg1SIo80bB@j0V0VzS_@n1
+r1
+!s85 0
+31
+!i10b 1
+!s100 zQ[nbi[Ue<CcDB[nbgkYE2
+IPQ1HE=^2FNM9^3QcolY]a3
+!s105 ALU_sv_unit
+S1
+Z3 dC:/Users/reh01/Desktop/lab4 newest
+Z4 w1512628152
+Z5 8C:/Users/reh01/Desktop/lab4 newest/ALU.sv
+Z6 FC:/Users/reh01/Desktop/lab4 newest/ALU.sv
+L0 3
+Z7 OV;L;10.5b;63
+Z8 !s108 1512893877.000000
+Z9 !s107 C:/Users/reh01/Desktop/lab4 newest/ALU.sv|
+Z10 !s90 -reportprogress|300|-work|lab4Sim|-sv|-stats=none|C:/Users/reh01/Desktop/lab4 newest/ALU.sv|
+!i113 1
+Z11 o-work lab4Sim -sv
+Z12 tCvgOpt 0
+n@a@l@u
+XALU_sv_unit
+R0
+R1
+V7mnB9Q]0jLcX>8TkHSGJJ2
+r1
+!s85 0
+31
+!i10b 1
+!s100 _<JP1D@`748PVdl598Pf:1
+I7mnB9Q]0jLcX>8TkHSGJJ2
+!i103 1
+S1
+R3
+R4
+R5
+R6
+L0 1
+R7
+R8
+R9
+R10
+!i113 1
+R11
+R12
+n@a@l@u_sv_unit
+vdata_mem
+R0
+Z13 !s110 1512893877
+!i10b 1
+!s100 bEDa7^4EnR2`k1j[nag]l1
+IT=P=ccnM`>J=HIhZejRnE3
+R2
+!s105 data_mem_sv_unit
+S1
+R3
+w1512852453
+8C:/Users/reh01/Desktop/lab4 newest/data_mem.sv
+FC:/Users/reh01/Desktop/lab4 newest/data_mem.sv
+L0 1
+R7
+r1
+!s85 0
+31
+R8
+!s107 C:/Users/reh01/Desktop/lab4 newest/data_mem.sv|
+!s90 -reportprogress|300|-work|lab4Sim|-sv|-stats=none|C:/Users/reh01/Desktop/lab4 newest/data_mem.sv|
+!i113 1
+R11
+R12
+Xdefinitions
+R0
+Z14 !s110 1512893878
+!i10b 1
+!s100 CRcP;k@Iocg6OUhgD;;_o1
+INGn;LW1KoTR>BN6nZo7O<0
+VNGn;LW1KoTR>BN6nZo7O<0
+S1
+R3
+R4
+8C:/Users/reh01/Desktop/lab4 newest/definitions.sv
+FC:/Users/reh01/Desktop/lab4 newest/definitions.sv
+L0 2
+R7
+r1
+!s85 0
+31
+Z15 !s108 1512893878.000000
+!s107 C:/Users/reh01/Desktop/lab4 newest/definitions.sv|
+!s90 -reportprogress|300|-work|lab4Sim|-sv|-stats=none|C:/Users/reh01/Desktop/lab4 newest/definitions.sv|
+!i113 1
+R11
+R12
+vflt2int_tb
+R0
+R14
+!i10b 1
+!s100 5jTh4Y]W8Bd_HcnDA`?9;2
+IPn>M_oOiz<hFSMOchd54M1
+R2
+!s105 flt2int_tb_sv_unit
+S1
+R3
+w1512806182
+8C:/Users/reh01/Desktop/lab4 newest/flt2int_tb.sv
+FC:/Users/reh01/Desktop/lab4 newest/flt2int_tb.sv
+L0 11
+R7
+r1
+!s85 0
+31
+R15
+!s107 C:/Users/reh01/Desktop/lab4 newest/flt2int_tb.sv|
+!s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/Users/reh01/Desktop/lab4 newest/flt2int_tb.sv|
+!i113 1
+o-work work -sv
+R12
+vfltflt
+R0
+R13
+!i10b 1
+!s100 6zd>cQDJBF>Foak29GW]P3
+IYN3>:K;04LVD=`Ck;;G>z0
+R2
+!s105 fltflt_sv_unit
+S1
+R3
+w1512853485
+8C:/Users/reh01/Desktop/lab4 newest/fltflt.sv
+FC:/Users/reh01/Desktop/lab4 newest/fltflt.sv
+L0 1
+R7
+r1
+!s85 0
+31
+R8
+!s107 C:/Users/reh01/Desktop/lab4 newest/fltflt.sv|
+!s90 -reportprogress|300|-work|lab4Sim|-sv|-stats=none|C:/Users/reh01/Desktop/lab4 newest/fltflt.sv|
+!i113 1
+R11
+R12
+vfltflt_tb
+R0
+!s110 1512632776
+!i10b 1
+!s100 Sb[D0J67Q?;WgSM3`_jD41
+I1KfN]LGhM=_C@ROLXX_BZ1
+R2
+!s105 fltflt_tb_sv_unit
+S1
+R3
+R4
+8C:/Users/reh01/Desktop/lab4 newest/fltflt_tb.sv
+FC:/Users/reh01/Desktop/lab4 newest/fltflt_tb.sv
+L0 7
+R7
+r1
+!s85 0
+31
+!s108 1512632776.000000
+!s107 C:/Users/reh01/Desktop/lab4 newest/fltflt_tb.sv|
+!s90 -reportprogress|300|-work|lab4Sim|-sv|-stats=none|C:/Users/reh01/Desktop/lab4 newest/fltflt_tb.sv|
+!i113 1
+R11
+R12
+vIF
+R0
+R13
+!i10b 1
+!s100 6;a9zNeOaVjgSMW3OM9Vh3
+IFALn3YJjGK>0e9@heTP7i2
+R2
+!s105 IF_sv_unit
+S1
+R3
+w1512853475
+8C:/Users/reh01/Desktop/lab4 newest/IF.sv
+FC:/Users/reh01/Desktop/lab4 newest/IF.sv
+L0 1
+R7
+r1
+!s85 0
+31
+R8
+!s107 C:/Users/reh01/Desktop/lab4 newest/IF.sv|
+!s90 -reportprogress|300|-work|lab4Sim|-sv|-stats=none|C:/Users/reh01/Desktop/lab4 newest/IF.sv|
+!i113 1
+R11
+R12
+n@i@f
+vInstDecoder
+R0
+R1
+DXx4 work 19 InstDecoder_sv_unit 0 22 PcS3P=Ag<EVPVejzQR1oY3
+R2
+r1
+!s85 0
+31
+!i10b 1
+!s100 B;=fCeT?]FHWz?f;Do]D]3
+IP=4Ph44Qhz52<agL<mg1@2
+!s105 InstDecoder_sv_unit
+S1
+R3
+Z16 w1512893762
+Z17 8C:/Users/reh01/Desktop/lab4 newest/InstDecoder.sv
+Z18 FC:/Users/reh01/Desktop/lab4 newest/InstDecoder.sv
+L0 3
+R7
+R8
+Z19 !s107 C:/Users/reh01/Desktop/lab4 newest/InstDecoder.sv|
+Z20 !s90 -reportprogress|300|-work|lab4Sim|-sv|-stats=none|C:/Users/reh01/Desktop/lab4 newest/InstDecoder.sv|
+!i113 1
+R11
+R12
+n@inst@decoder
+XInstDecoder_sv_unit
+R0
+R1
+VPcS3P=Ag<EVPVejzQR1oY3
+r1
+!s85 0
+31
+!i10b 1
+!s100 =;IERD<KJ]b5_diZY42:X1
+IPcS3P=Ag<EVPVejzQR1oY3
+!i103 1
+S1
+R3
+R16
+R17
+R18
+L0 1
+R7
+R8
+R19
+R20
+!i113 1
+R11
+R12
+n@inst@decoder_sv_unit
+vInstROM
+R0
+R14
+!i10b 1
+!s100 R5;_Re`0I3aMDU:EdHZ<51
+IJ>AozFL7i<zE?GQIVRcX>1
+R2
+!s105 instROM_sv_unit
+S1
+R3
+w1512853479
+8C:/Users/reh01/Desktop/lab4 newest/instROM.sv
+FC:/Users/reh01/Desktop/lab4 newest/instROM.sv
+L0 1
+R7
+r1
+!s85 0
+31
+R15
+!s107 C:/Users/reh01/Desktop/lab4 newest/instROM.sv|
+!s90 -reportprogress|300|-work|lab4Sim|-sv|-stats=none|C:/Users/reh01/Desktop/lab4 newest/instROM.sv|
+!i113 1
+R11
+R12
+n@inst@r@o@m
+vreg_file
+R0
+R14
+!i10b 1
+!s100 8]>NCfRTQ_e@@D04V>76]0
+I4Qf@HCT?hPS4GWMcDL0N12
+R2
+!s105 reg_file_sv_unit
+S1
+R3
+w1512891927
+8C:/Users/reh01/Desktop/lab4 newest/reg_file.sv
+FC:/Users/reh01/Desktop/lab4 newest/reg_file.sv
+L0 2
+R7
+r1
+!s85 0
+31
+R15
+!s107 C:/Users/reh01/Desktop/lab4 newest/reg_file.sv|
+!s90 -reportprogress|300|-work|lab4Sim|-sv|-stats=none|C:/Users/reh01/Desktop/lab4 newest/reg_file.sv|
+!i113 1
+R11
+R12

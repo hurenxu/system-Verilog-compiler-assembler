@@ -1,0 +1,68 @@
+{C:/Users/reh01/Desktop/lab4 newest/InstDecoder.sv} {1 {vlog -work lab4Sim -sv -stats=none {C:/Users/reh01/Desktop/lab4 newest/InstDecoder.sv}
+Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+-- Compiling package InstDecoder_sv_unit
+-- Importing package definitions
+-- Compiling module InstDecoder
+
+Top level modules:
+	InstDecoder
+
+} {} {}} {C:/Users/reh01/Desktop/lab4 newest/instROM.sv} {1 {vlog -work lab4Sim -sv -stats=none {C:/Users/reh01/Desktop/lab4 newest/instROM.sv}
+Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+-- Compiling module InstROM
+
+Top level modules:
+	InstROM
+
+} {} {}} {C:/Users/reh01/Desktop/lab4 newest/fltflt.sv} {1 {vlog -work lab4Sim -sv -stats=none {C:/Users/reh01/Desktop/lab4 newest/fltflt.sv}
+Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+-- Compiling module fltflt
+
+Top level modules:
+	fltflt
+
+} {} {}} {C:/Users/reh01/Desktop/lab4 newest/data_mem.sv} {1 {vlog -work lab4Sim -sv -stats=none {C:/Users/reh01/Desktop/lab4 newest/data_mem.sv}
+Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+-- Compiling module data_mem
+
+Top level modules:
+	data_mem
+
+} {} {}} {C:/Users/reh01/Desktop/lab4 newest/flt2int_tb.sv} {1 {vlog -work work -sv -stats=none {C:/Users/reh01/Desktop/lab4 newest/flt2int_tb.sv}
+Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+-- Compiling module flt2int_tb
+
+Top level modules:
+	flt2int_tb
+
+} {} {}} {C:/Users/reh01/Desktop/lab4 newest/definitions.sv} {1 {vlog -work lab4Sim -sv -stats=none {C:/Users/reh01/Desktop/lab4 newest/definitions.sv}
+Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+-- Compiling package definitions
+
+Top level modules:
+	--none--
+
+} {} {}} {C:/Users/reh01/Desktop/lab4 newest/reg_file.sv} {1 {vlog -work lab4Sim -sv -stats=none {C:/Users/reh01/Desktop/lab4 newest/reg_file.sv}
+Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+-- Compiling module reg_file
+
+Top level modules:
+	reg_file
+
+} {} {}} {C:/Users/reh01/Desktop/lab4 newest/ALU.sv} {1 {vlog -work lab4Sim -sv -stats=none {C:/Users/reh01/Desktop/lab4 newest/ALU.sv}
+Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+-- Compiling package ALU_sv_unit
+-- Importing package definitions
+-- Compiling module ALU
+
+Top level modules:
+	ALU
+
+} {} {}} {C:/Users/reh01/Desktop/lab4 newest/IF.sv} {1 {vlog -work lab4Sim -sv -stats=none {C:/Users/reh01/Desktop/lab4 newest/IF.sv}
+Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+-- Compiling module IF
+
+Top level modules:
+	IF
+
+} {} {}}
